@@ -12,13 +12,13 @@ public class Vegetacion {
 		
 	}
 	public void Crecer(){
-		System.out.println("Creció un centimetro");
 		tamano += 1;
+		Util.report("Creció un centimetro");
 	}
 	
 	public void Ser_Fumigado(){
 		fumigado=true;
-		System.out.println("Todo está fumigado");
+		Util.report("Todo está fumigado");
 	}
 	public int getTamano() {
 		return tamano;
