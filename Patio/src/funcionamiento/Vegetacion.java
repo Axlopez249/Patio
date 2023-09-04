@@ -1,15 +1,23 @@
 package funcionamiento;
+import java.util.ArrayList;
+
+import control.Util;
+import schedule.Task;
+import timer.Clock;
 
 public class Vegetacion {
+	public ArrayList<String> tasks;
 	protected int tamano;
-	protected boolean plaga;
-	protected boolean riego;
+	protected boolean plaga=false;
+	protected boolean riego=false;
 	protected boolean fumigado=false;
 	
 	
 	//Funciones
-	public Vegetacion() {
-		
+	public Vegetacion(int pSize) {
+		tasks = new ArrayList<String>();
+		tamano = pSize;
+		loadMyTasks();
 	}
 	public void Crecer(){
 		tamano += 1;
@@ -33,4 +41,23 @@ public class Vegetacion {
 		return fumigado;
 	}
 	
+	public void process(Task pTask) {
+		for(String task : tasks) {
+			
+			if (
+				task.compareTo(pTask.getTaskname())==0 &&
+				!pTask.isProcesada() //&&
+				//Clock.getSecondsToNow(pTask.getTasktime())<=
+				//Clock.getSecondsToNow(Clock.getTime())
+				) 
+			{
+				
+				pTask.setProcesada(true);
+				
+				System.out.println(this.getClass().toString()+" "+pTask.getTaskname());
+			}
+		}
+	}
+	protected void loadMyTasks() {
+	}
 }

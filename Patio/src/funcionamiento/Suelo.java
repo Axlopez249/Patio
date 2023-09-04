@@ -1,11 +1,11 @@
 package funcionamiento;
 
 public class Suelo {
-	private int tamaño;
-	private boolean saturado;
+	private int tamano;
+	private boolean saturado=false;
 	
-	public Suelo() {
-		
+	public Suelo(int pSize) {
+		tamano = pSize;
 	}
 	
 	public void Saturarse() {
