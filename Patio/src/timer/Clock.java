@@ -26,10 +26,13 @@ public class Clock extends Thread {
 				currentTime = Calendar.getInstance().getTime();
 				scheduler.processTasks(frame);
 				Thread.sleep(5000);	// controlar la escala de tiempo
+				System.out.println("A");
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
+		
 		}
+		System.out.println("B");
 	}
 	
 	public static int getSecondsToNow(Date pBaseTime) {

@@ -36,7 +36,7 @@ public class ScheduleParser {
 	}	
 	
 	private void loadJson() {
-		String pathtofile = "Direccion del JSon";
+		String pathtofile = "C:\\Users\\23jic\\eclipse-workspace\\POOCaso1\\src\\schedule\\schedule.json";
         
 		try ( JsonReader reader = Json.createReader(new FileReader(pathtofile))) {
             JsonObject jsonparser = reader.readObject();

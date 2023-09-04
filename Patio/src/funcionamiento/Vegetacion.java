@@ -34,6 +34,9 @@ public class Vegetacion {
 	public boolean isPlaga() {
 		return plaga;
 	}
+	public void setPlaga(boolean pPlaga) {
+		plaga = pPlaga;
+	}
 	public boolean isRiego() {
 		return riego;
 	}

@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/23jic/eclipse-workspace/patioPOO/javax.json-1.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/23jic/eclipse-workspace/patioPOO/javax.json-api-1.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/23jic/eclipse-workspace/POOCaso1/javax.json-1.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/23jic/eclipse-workspace/POOCaso1/javax.json-api-1.1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

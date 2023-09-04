@@ -1,19 +1,37 @@
 package control;
 
 import gui.GUI;
+import java.util.ArrayList;
+
+import funcionamiento.*;
 
 public class TaskPatio implements Itask{
-	Task_Manager manager = new Task_Manager();
+	Task_Manager manager;
+	ArrayList<Vegetacion> listaElementos;
 	
+	public TaskPatio(Clase_Padre control, ArrayList<Vegetacion> listaV) {
+		manager = new Task_Manager(control);
+		listaElementos = listaV;
+	}
+
 	@Override
 	public void execute(Action pAction, GUI frame) {
 		if (pAction==Action.EnviarPlagasInsectos) {
-			manager.EnviarPlagasInsectos();
-			frame.decirAccion("5", "Enviar plagas de insectos");
+			for (Vegetacion elemento: listaElementos){
+				manager.EnviarPlagasInsectos(elemento);
+				frame.decirAccion("5", "Enviar plagas de insectos");
+			}
+			
 		}
 		if (pAction==Action.CrecerCesped) {
-			manager.CrecerCesped();
-			frame.decirAccion("5", "Crece el césped");
+			for(Vegetacion elemento: listaElementos) {
+				if (elemento.getClass() == Cesped.class) {
+					System.out.println(elemento.getClass().getSimpleName());
+					manager.CrecerCesped(elemento);
+					frame.decirAccion("5", "Crece el césped");
+				}
+			}
+			
 		}
 		if (pAction==Action.PasarAguaVentana) {
 			manager.PasarAguaVentana();
