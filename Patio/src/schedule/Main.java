@@ -15,13 +15,14 @@ public class Main {
 		
 		Clase_Padre control = new Clase_Padre();
 		ArrayList<Vegetacion> elementos = control.start();
+		ArrayList<Suelo> elementos_suelo = control.start_suelo();
 		GUI frame = new GUI();
 		frame.setVisible(true);
 		Scheduler myscheduler = new Scheduler();
 		Clock hiloControl = new Clock(myscheduler);
 		hiloControl.start();
 		myscheduler.processTasks(frame);
-		TaskPatio manager = new TaskPatio(control, elementos);
+		TaskPatio manager = new TaskPatio(control, elementos, elementos_suelo);
 		manager.execute(Action.CrecerCesped, frame);
 	}
 	

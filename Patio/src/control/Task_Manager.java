@@ -17,14 +17,17 @@ public class Task_Manager {
 		control.Crecer_Cesped(cesped);
 	}
 	
-	public void SaturarSuelo() {
+	public void SaturarSuelo(Suelo elemento_suelo) {
 		Util.report("Se satura el suelo");
+		elemento_suelo.Saturarse();
 		
 	}
 	
-	public void SituacionPatio() {
+	public void SituacionPatio(Vegetacion objeto) {
 		Util.report("Se obtiene la situacion del patio");
-		
+		Util.report("Fumigación: " + objeto.isFumigado());
+		Util.report("Plaga: " + objeto.isPlaga());
+		Util.report("Riego: " + objeto.isRiego());
 	}
 	
 	public void PasarAguaVentana() {
