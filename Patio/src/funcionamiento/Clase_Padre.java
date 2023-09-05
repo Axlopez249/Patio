@@ -15,7 +15,7 @@ public class Clase_Padre {
 		vegetacion.add(planta1);
 		Planta planta2 = new Planta("Rosal", 2);
 		vegetacion.add(planta2);
-		Suelo suelo = new Suelo(30);
+		
 		Cesped cesped = new Cesped(20);
 		vegetacion.add(cesped);
 		Arbol arbol1 = new Arbol("Roble", false, 10);
@@ -23,6 +23,13 @@ public class Clase_Padre {
 		Arbol arbol2 = new Arbol("Manzano", true, 7);
 		vegetacion.add(arbol2);
 		return vegetacion;
+	}
+	
+	public ArrayList<Suelo> start_suelo(){
+		ArrayList<Suelo> lista_suelo = new ArrayList<Suelo>();
+		Suelo suelo = new Suelo(30);
+		lista_suelo.add(suelo);
+		return lista_suelo;
 	}
 	
 	public void Regar_Plantas(Planta planta) {
@@ -50,7 +57,9 @@ public class Clase_Padre {
 		cesped.Reducir_Tamaño();
 	}
 	
-	public void Fumigar(){
+	public void Fumigar(Vegetacion objeto){
+		objeto.setPlaga(false);
+		objeto.setFumigado(true);
 		Util.report("Fumigando la vegetación");
 	}
 	
@@ -63,7 +72,15 @@ public class Clase_Padre {
 	}
 	
 	public void Saturar(Suelo psuelo){
+		boolean status1 = psuelo.isSaturado();
 		Util.report("El suelo se satura");
+		if (status1 == false) {
+			Util.report("El suelo no está saturado");
+		}else {
+			Util.report("El suelo está saturado");
+		}
+		psuelo.Saturarse();
+		Util.report("Ahora el suelo está saturado");
 	}
 	
 	public void Pasar_Agua_Ventana(){
