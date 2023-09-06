@@ -1,4 +1,4 @@
-package schedule;
+package patio;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -24,11 +24,7 @@ public class ScheduleParser {
         for (JsonValue taskjson : jsontasks) {
             JsonObject taskobject = (JsonObject) taskjson;
             
-            System.out.println(taskobject.getString("time"));
-            System.out.println(taskobject.getString("task"));
-            System.out.println("\n");
-            
-            Task task = new Task(taskobject.getString("time"), taskobject.getString("task"));
+            Task task = new Task(taskobject.getString("time"), taskobject.getString("task"), taskobject.getString("elemento"));
             result.add(task);
         }
         
@@ -36,7 +32,7 @@ public class ScheduleParser {
 	}	
 	
 	private void loadJson() {
-		String pathtofile = "C:\\Users\\23jic\\eclipse-workspace\\POOCaso1\\src\\schedule\\schedule.json";
+		String pathtofile = "C:\\Users\\23jic\\eclipse-workspace\\POOCaso1\\src\\patio\\schedule.json";
         
 		try ( JsonReader reader = Json.createReader(new FileReader(pathtofile))) {
             JsonObject jsonparser = reader.readObject();

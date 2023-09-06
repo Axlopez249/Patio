@@ -1,11 +1,10 @@
-package gui;
+package patio;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GUI extends JFrame {
 	private JTextArea textArea;
-	private JButton button2;
 	
 	public GUI() {
 		setTitle("Patio Casa 2");
@@ -28,7 +27,7 @@ public class GUI extends JFrame {
         textArea.setLineWrap(true); // Enable line wrapping
         textArea.setWrapStyleWord(true); // Wrap at word boundaries
 
-        Rectangle textAreaBounds = new Rectangle(50, 60, 380, 450);
+        Rectangle textAreaBounds = new Rectangle(50, 40, 380, 510);
         textArea.setBounds(textAreaBounds);
         textArea.setEditable(false);
         

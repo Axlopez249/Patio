@@ -1,5 +1,4 @@
-package control;
-import gui.GUI;
+package patio;
 import java.util.ArrayList;
 
 public interface Itask {

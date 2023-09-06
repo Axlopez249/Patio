@@ -1,38 +1,46 @@
-package timer;
+package patio;
 
 import java.util.Calendar;
 import java.util.Date;
 
-import gui.GUI;
-import schedule.Scheduler;
-
 public class Clock extends Thread {
 	private static boolean running = true;
 	private static Date currentTime;
-	
 	private Scheduler scheduler;
+	private GUI frame;
 	
-	public Clock(Scheduler pScheduler) {
+	public Clock(Scheduler pScheduler, GUI pframe) {
 		scheduler = pScheduler;
+		frame = pframe;
 	}
 	
 	public void stopTimer() {
 		running = false;
 	}
 	
-	public void run(GUI frame) {
+	@SuppressWarnings("deprecation")
+	public void run() {
+		currentTime = Calendar.getInstance().getTime();
+		currentTime.setDate(29); currentTime.setMonth(7);
+		currentTime.setHours(0);
+		currentTime.setMinutes(0); currentTime.setSeconds(0);
 		while (running) {
 			try {
-				currentTime = Calendar.getInstance().getTime();
-				scheduler.processTasks(frame);
+				currentTime.setHours(currentTime.getHours()+1);
+				currentTime.setMinutes(0); currentTime.setSeconds(0);
+				frame.decirAccion("Hora actual: ", currentTime.toString());
+				scheduler.processTasks(frame, currentTime);
 				Thread.sleep(5000);	// controlar la escala de tiempo
-				System.out.println("A");
+				if (currentTime.getHours()==0)
+				{
+					stopTimer();
+				}
+				
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
 		
 		}
-		System.out.println("B");
 	}
 	
 	public static int getSecondsToNow(Date pBaseTime) {
@@ -49,6 +57,6 @@ public class Clock extends Thread {
 	}
 	
 	public static Date getTime() {
-		return currentTime;
+		return Calendar.getInstance().getTime();
 	}
 }
